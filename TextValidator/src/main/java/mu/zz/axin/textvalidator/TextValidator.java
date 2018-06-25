@@ -20,6 +20,7 @@ public class TextValidator {
         return this;
     }
 
+
     public TextValidator setPasswordStrength(PasswordStrength passwordStrength) {
         this.passwordStrength = passwordStrength;
         return this;
