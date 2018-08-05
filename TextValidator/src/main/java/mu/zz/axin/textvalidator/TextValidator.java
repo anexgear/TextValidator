@@ -2,9 +2,11 @@ package mu.zz.axin.textvalidator;
 
 
 
-public class TextValidator {
+public abstract class TextValidator implements Validator {
 
-//    Tested in https://www.freeformatter.com/java-regex-tester.html#ad-output
+
+
+//    Tested in https://www.freeformatter.com/java-regex-tester.html
 
     private TextType textType;
     private PasswordStrength passwordStrength = PasswordStrength.WEAK;
@@ -43,7 +45,8 @@ public class TextValidator {
 //        (?=.*[@#$%^&+=])  # a special character must occur at least once
 //        (?=\S+$)          # no whitespace allowed in the entire string
 //        .{6,20}             # anything, at least eight places though
-//        (([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])])([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])])(?=\S+$).{5,25}) - normal password
+//      NORMAL  (([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])])([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])])(?=\S+$).{5,25})
+//      WEAK  ([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])](?=\S+$).{2,25})
     }
 
     private String passwordPolicyBuilder(PasswordStrength passwordStrength){
@@ -129,5 +132,5 @@ public class TextValidator {
 
     }
 
-    
+
 }
