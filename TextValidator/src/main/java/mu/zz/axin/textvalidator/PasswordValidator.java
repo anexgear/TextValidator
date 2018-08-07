@@ -3,9 +3,11 @@ package mu.zz.axin.textvalidator;
 
 class PasswordValidator {
 
+    //Test regex https://www.freeformatter.com/java-regex-tester.html
 
-    public static class Weak implements Validator{
-        private final String WEAK_PASSWORD_PATTERN = "((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])(?=\\S+$).{8,25})";
+
+    static class Weak implements Validator{
+        private final String WEAK_PASSWORD_PATTERN = "(.*).{2,}";
 
         @Override
         public boolean validate(String string) {
@@ -13,8 +15,8 @@ class PasswordValidator {
         }
     }
 
-    public static class Normal implements Validator{
-        private final String NORMAL_PASSWORD_PATTERN = "(([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])])([(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])])(?=\\S+$).{5,25})";
+    static class Normal implements Validator{
+        private final String NORMAL_PASSWORD_PATTERN = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{4,}$";
 
         @Override
         public boolean validate(String string) {
@@ -22,8 +24,8 @@ class PasswordValidator {
         }
     }
 
-    public static class Strong implements Validator{
-        private final String STRONG_PASSWORD_PATTERN = "((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_+=])(?=\\S+$).{8,25})";
+    static class Strong implements Validator{
+        private final String STRONG_PASSWORD_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$#!%*?&])[A-Za-z\\d$@#$!%*?&]{8,}";
 
         @Override
         public boolean validate(String string) {
