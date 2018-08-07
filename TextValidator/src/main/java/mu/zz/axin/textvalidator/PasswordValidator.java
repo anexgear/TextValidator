@@ -16,7 +16,7 @@ class PasswordValidator {
     }
 
     static class Normal implements Validator{
-        private final String NORMAL_PASSWORD_PATTERN = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{4,}$";
+        private final String NORMAL_PASSWORD_PATTERN = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d].{4,}";
 
         @Override
         public boolean validate(String string) {
